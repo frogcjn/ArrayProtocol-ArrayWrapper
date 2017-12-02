@@ -25,7 +25,7 @@ extension Array : ArrayLikeProtocol {}
 ```
 
 ## About ArrayProtocol
-And `Array` conforms `Encodable` and `Decodable`, so there is a special `ArrayProtocol` conforms these two.
+Since `Array` conforms `Encodable` and `Decodable`, so there is a special `ArrayProtocol` conforms these two.
 ```Swift
 
 public protocol ArrayProtocol : ArrayLikeProtocol, Encodable, Decodable {}
