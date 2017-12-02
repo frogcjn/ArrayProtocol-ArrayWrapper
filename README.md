@@ -7,6 +7,16 @@ There are 3 array-like types in Swift 4 `stdlib`: `Array`, `ArraySlice` and `Con
 
 So I made `ArrayLikeProtocol` to conclude these three types.
 ```Swift
+
+public protocol ArrayLikeProtocol :
+    ArrayBufferProtocol, ArrayBytesProtocol,
+    MutableCollection, RangeReplaceableCollection, RandomAccessCollection,
+    ExpressibleByArrayLiteral,
+    CustomStringConvertible, CustomDebugStringConvertible,
+    CustomReflectable where Index == Int {
+    var capacity: Int { get }
+}
+
 extension ArraySlice: ArrayLikeProtocol {}
 
 extension ContiguousArray: ArrayLikeProtocol {}
@@ -17,7 +27,11 @@ extension Array : ArrayLikeProtocol {}
 ## About ArrayProtocol
 And `Array` conforms `Encodable` and `Decodable`, so there is a special `ArrayProtocol` conforms these two.
 ```Swift
+
+public protocol ArrayProtocol : ArrayLikeProtocol, Encodable, Decodable {}
+
 extension Array : ArrayProtocol {}
+
 ```
 
 ## About ArrayLikeWrapper and ArrayWrapper
