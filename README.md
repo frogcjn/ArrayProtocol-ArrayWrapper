@@ -21,7 +21,7 @@ extension Array : ArrayProtocol {}
 There are two types of ArrayWrapper. If you only want to wrap Array type, you could just use ArrayWrapper.
 If you want wrap to all the array-like types, use ArrayLikeWrapper instead.
 
-```
+```Swift
 public class ArrayLikeWrapper<Wrapped : ArrayLikeProtocol> : ArrayLikeProtocol {
     
     public var wrapped: Wrapped
