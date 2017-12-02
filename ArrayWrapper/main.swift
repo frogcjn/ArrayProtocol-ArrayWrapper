@@ -6,7 +6,5 @@
 //  Copyright © 2017年 Cao, Jiannan. All rights reserved.
 //
 
-import Foundation
 
-print("Hello, World!")
 
