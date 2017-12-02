@@ -1,9 +1,11 @@
 # ArrayProtocol-ArrayWrapper
-This repo contains an ArrayProtocol, and an ArrayWrapper to emulate the Array in Swift. Thus you can subclass an "Array" easily.
+This repo contains two of `ArrayProtocol`, and two of `ArrayWrapper` to emulate the `Array` in Swift.
+Thus you can subclass an `"Array"` type easily.
 
-There are 3 array-like types in Swift 4 stdlib: Array, ArraySlice and ContiguousArray.
+## About ArrayLikeProtocol
+There are 3 array-like types in Swift 4 `stdlib`: `Array`, `ArraySlice` and `ContiguousArray`.
 
-So I made ArrayLikeProtocol to conclude these three types.
+So I made `ArrayLikeProtocol` to conclude these three types.
 ```Swift
 extension ArraySlice: ArrayLikeProtocol {}
 
@@ -12,14 +14,16 @@ extension ContiguousArray: ArrayLikeProtocol {}
 extension Array : ArrayLikeProtocol {}
 ```
 
-
-And Array conforms Encodable and Decodable, so there is a special ArrayProtocol conforms these two.
+## About ArrayProtocol
+And `Array` conforms `Encodable` and `Decodable`, so there is a special `ArrayProtocol` conforms these two.
 ```Swift
 extension Array : ArrayProtocol {}
 ```
 
-There are two types of ArrayWrapper. If you only want to wrap Array type, you could just use ArrayWrapper.
-If you want wrap to all the array-like types, use ArrayLikeWrapper instead.
+## About ArrayLikeWrapper and ArrayWrapper
+
+There are two types of `ArrayWrapper`. If you only want to wrap `Array` type, you could just use `ArrayWrapper`.
+If you want wrap to all the array-like types, use `ArrayLikeWrapper` instead.
 
 ```Swift
 public class ArrayLikeWrapper<Wrapped : ArrayLikeProtocol> : ArrayLikeProtocol {
