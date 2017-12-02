@@ -14,11 +14,27 @@ extension Array : ArrayLikeProtocol {}
 
 
 And Array conforms Encodable and Decodable, so there is a special ArrayProtocol conforms these two.
-```
+```Swift
 extension Array : ArrayProtocol {}
 ```
 
 There are two types of ArrayWrapper. If you only want to wrap Array type, you could just use ArrayWrapper.
 If you want wrap to all the array-like types, use ArrayLikeWrapper instead.
+
+```
+public class ArrayLikeWrapper<Wrapped : ArrayLikeProtocol> : ArrayLikeProtocol {
+    
+    public var wrapped: Wrapped
+    
+    public init(_ wrapped: Wrapped) {
+        self.wrapped = wrapped
+    }
+    
+    public required convenience init(arrayLiteral elements: Element...) {
+        self.init(elements)
+    }
+    ...
+}
+```
 
 Enjoy.
